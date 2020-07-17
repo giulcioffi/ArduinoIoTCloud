@@ -62,7 +62,13 @@
   #define OTA_STORAGE_SSU         (0)
 #endif
 
-#if OTA_STORAGE_SFU || OTA_STORAGE_SSU || OTA_STORAGE_SNU
+#ifdef ARDUINO_SAMD_MKRNB1500
+  #define OTA_STORAGE_SBU         (1)
+#else
+  #define OTA_STORAGE_SBU         (0)
+#endif
+
+#if OTA_STORAGE_SFU || OTA_STORAGE_SSU || OTA_STORAGE_SNU || OTA_STORAGE_SBU
   #define OTA_ENABLED             (1)
 #else
   #define OTA_ENABLED             (0)
